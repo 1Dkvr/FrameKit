@@ -1,0 +1,38 @@
+@layer layout {
+  /* On expose des variables locales modifiables à la volée */
+  .flex {
+    display: flex;
+    gap: var(--gap, var(--space-s)); /* Gap par défaut = space-s, modifiable en HTML */
+    align-items: var(--ai, center); /* Align-items par défaut : center */
+    justify-content: var(--jc, flex-start);
+  }
+
+  /* Variations de direction */
+  .flex-col { flex-direction: column; }
+  .flex-wrap { flex-wrap: wrap; }
+
+  /* Le pattern "Cluster" : un groupe d'éléments qui va à la ligne proprement (ex: tags) */
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    align-items: center;
+  }
+
+  /* Le pattern "Split" : un élément à gauche, un élément à droite (ex: Header) */
+  .split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Le pattern "Stack" : empiler des éléments verticalement de manière régulière */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-m);
+  }
+}
