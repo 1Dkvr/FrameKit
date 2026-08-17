@@ -1,0 +1,23 @@
+@layer base {
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: var(--step-0);
+    line-height: 1.5;
+  }
+
+  /* Exemple d'utilisation de CSS4 : oklch() relatif pour un lien au hover */
+  a {
+    color: var(--brand-base);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    /* MAGIE : On prend la couleur brand, et on baisse la luminosité (l) de 10% */
+    color: oklch(from var(--brand-base) calc(l - 10%) c h);
+  }
+}
