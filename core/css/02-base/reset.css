@@ -1,0 +1,39 @@
+@layer reset {
+  /* Box-sizing intuitif pour tout le monde */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Reset des marges par défaut */
+  body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+    margin: 0;
+  }
+
+  /* Fluidité des médias */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Héritage de la typo sur les formulaires */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* Focus visible pour l'accessibilité */
+  :focus-visible {
+    outline: 2px solid var(--brand-base);
+    outline-offset: 4px;
+  }
+
+  /* Suppression des animations si l'utilisateur y est sensible */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
