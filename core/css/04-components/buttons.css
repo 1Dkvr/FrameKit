@@ -1,0 +1,48 @@
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    
+    /* Propriétés logiques : s'adapte à la direction du texte (LTR / RTL) */
+    padding-inline: var(--space-m);
+    padding-block: var(--space-xs);
+    
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.25em; /* S'adapte à la taille de la police du bouton */
+    cursor: pointer;
+    
+    /* On utilise la couleur primaire par défaut */
+    background-color: var(--btn-bg, var(--brand-base));
+    /* Le texte prend la couleur du fond de page pour le contraste */
+    color: var(--btn-color, var(--bg-page)); 
+    
+    /* Transition optimisée (pas de 'all') */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  /* État au survol : On assombrit la couleur de fond dynamique avec color-mix() */
+  .btn:hover {
+    background-color: color-mix(in oklch, var(--btn-bg, var(--brand-base)) 85%, black);
+  }
+
+  /* Effet d'enfoncement physique */
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Variante : Bouton Fantôme (Ghost) */
+  .btn-ghost {
+    --btn-bg: transparent;
+    --btn-color: var(--text-main);
+    border: 1px solid var(--border-subtle);
+  }
+  
+  .btn-ghost:hover {
+    /* Au survol, on mélange la couleur de bordure avec 90% de transparence */
+    background-color: color-mix(in oklch, var(--border-subtle) 20%, transparent);
+  }
+}
