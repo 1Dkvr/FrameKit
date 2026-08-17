@@ -1,0 +1,14 @@
+@layer layout {
+  .container {
+    /* Largeur fluide avec marge de sécurité, bloquée à une largeur max */
+    /* On utilise notre variable clamp() de la phase 1 pour les marges internes */
+    width: min(100% - var(--space-l) * 2, 80rem); /* 80rem = 1280px */
+    margin-inline: auto; /* Remplace margin-left et margin-right : auto */
+    
+    /* Magie CSS4 : ce conteneur devient une référence de taille pour ses enfants */
+    container-type: inline-size;
+    container-name: wrapper;
+  }
+
+  .container-sm { width: min(100% - var(--space-l) * 2, 48rem); } /* ~768px */
+}
