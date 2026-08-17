@@ -1,0 +1,40 @@
+@layer layout {
+  /* 
+   * LA GRILLE MAGIQUE FLUIDE 
+   * S'adapte automatiquement : crée des colonnes de min 250px.
+   * S'il y a de la place, elles s'étirent. S'il n'y en a pas, elles passent à la ligne.
+   */
+  .grid-auto {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  }
+
+  /* Version pour des éléments plus petits (ex: cartes de produits, tags) */
+  .grid-auto-sm {
+    display: grid;
+    gap: var(--space-s);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  }
+
+  /* 
+   * LE PANCAKE STACK (Header, Main, Footer)
+   * Le main prend tout l'espace disponible (1fr)
+   */
+  .grid-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh; /* dvh : hauteur dynamique de l'écran, parfait pour mobile */
+  }
+
+  /* 
+   * SIDEBAR DYNAMIQUE
+   * Sidebar fixe (ex: 300px), contenu fluide.
+   * Et si on est sur mobile ? La grille se casse toute seule grâce au min(100%, ...)
+   */
+  .grid-sidebar {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: minmax(min(100%, 300px), 1fr) 3fr;
+  }
+}
