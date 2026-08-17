@@ -1,0 +1,32 @@
+@layer tokens {
+  /* Gestion du thème : par défaut on suit le système d'exploitation */
+  :root {
+    color-scheme: light dark;
+  }
+  
+  /* Permet au JS de forcer un thème via <html data-theme="light|dark"> */
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"]  { color-scheme: dark; }
+
+  :root {
+    /* --- Couleurs de base (Palette OKLCH) --- */
+    /* L (Lightness: 0-100%), C (Chroma: saturation), H (Hue: 0-360) */
+    --brand-base: oklch(55% 0.22 260); /* Un bleu profond et vibrant */
+    --error-base: oklch(60% 0.20 25);  /* Un rouge sémantique */
+    --success-base: oklch(65% 0.18 145); /* Un vert sémantique */
+
+    /* --- Couleurs Sémantiques avec light-dark() --- */
+    /* Ces variables s'adaptent toutes seules selon le thème actif ! */
+    
+    /* Fonds et surfaces */
+    --bg-page: light-dark(oklch(98% 0.01 260), oklch(15% 0.02 260));
+    --bg-surface: light-dark(oklch(100% 0 0), oklch(20% 0.02 260));
+    
+    /* Textes */
+    --text-main: light-dark(oklch(20% 0.02 260), oklch(95% 0.01 260));
+    --text-muted: light-dark(oklch(45% 0.02 260), oklch(75% 0.01 260));
+
+    /* Bordures */
+    --border-subtle: light-dark(oklch(90% 0.02 260), oklch(25% 0.02 260));
+  }
+}
