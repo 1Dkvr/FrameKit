@@ -1,1 +1,17 @@
+@charset "UTF-8";
+/**
+ * @name Minimal Modern Framework
+ * @description Architecture basée sur les Cascading Layers
+ */
 
+/* 1. Déclaration stricte de l'ordre d'importance (du plus faible au plus fort) */
+@layer tokens, reset, base, layout, components, utilities;
+
+/* 2. Importation des fichiers dans leurs couches respectives */
+@import url('01-tokens/colors.css') layer(tokens);
+@import url('01-tokens/fluid.css') layer(tokens);
+
+@import url('02-base/reset.css') layer(reset);
+@import url('02-base/elements.css') layer(base);
+
+/* Les autres fichiers viendront ensuite... */
