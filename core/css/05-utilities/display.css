@@ -1,0 +1,24 @@
+@layer utilities {
+  .d-none { display: none; }
+  .d-block { display: block; }
+  
+  /* Utilitaires de conteneur d'images (empeche l'image d'être déformée) */
+  .img-cover { object-fit: cover; }
+  .img-contain { object-fit: contain; }
+
+  /* 
+   * Indispensable pour l'accessibilité : 
+   * Cache visuellement un élément, mais le laisse lisible pour les lecteurs d'écran.
+   */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
