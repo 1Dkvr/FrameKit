@@ -1,0 +1,17 @@
+@layer tokens {
+  :root {
+    /* Typographie fluide : s'agrandit entre 320px et 1200px d'écran */
+    --step--1: clamp(0.8333rem, 0.7719rem + 0.3069vw, 1rem); /* Petits textes */
+    --step-0:  clamp(1rem, 0.9079rem + 0.4605vw, 1.25rem); /* Corps de texte */
+    --step-1:  clamp(1.2rem, 1.0664rem + 0.6679vw, 1.5625rem); /* H3 */
+    --step-2:  clamp(1.44rem, 1.2514rem + 0.9429vw, 1.9531rem); /* H2 */
+    --step-3:  clamp(1.728rem, 1.4665rem + 1.3073vw, 2.4414rem); /* H1 */
+
+    /* Espacements fluides (Padding, Gap, Margin) */
+    --space-xs: clamp(0.5rem, 0.454rem + 0.23vw, 0.625rem);
+    --space-s:  clamp(1rem, 0.9079rem + 0.4605vw, 1.25rem);
+    --space-m:  clamp(1.5rem, 1.3618rem + 0.6908vw, 1.875rem);
+    --space-l:  clamp(2rem, 1.8158rem + 0.9211vw, 2.5rem);
+    --space-xl: clamp(3rem, 2.7237rem + 1.3816vw, 3.75rem);
+  }
+}
