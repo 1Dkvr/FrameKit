@@ -14,4 +14,14 @@
 @import url('02-base/reset.css') layer(reset);
 @import url('02-base/elements.css') layer(base);
 
-/* Les autres fichiers viendront ensuite... */
+@import url('03-layout/container.css') layer(layout);
+@import url('03-layout/grid.css') layer(layout);
+@import url('03-layout/flex.css') layer(layout);
+
+@import url('04-components/buttons.css') layer(components);
+@import url('04-components/dialog.css') layer(components);
+@import url('04-components/cards.css') layer(components);
+
+@import url('05-utilities/spacing.css') layer(utilities);
+@import url('05-utilities/typography.css') layer(utilities);
+@import url('05-utilities/display.css') layer(utilities);
