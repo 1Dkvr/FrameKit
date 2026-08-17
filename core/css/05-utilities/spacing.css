@@ -1,0 +1,52 @@
+@layer utilities {
+  /* 
+   * MARGINS (Marges externes)
+   * m- = all | mb- = block (vertical) | mi- = inline (horizontal) 
+   */
+  .m-0  { margin: 0; }
+  .m-xs { margin: var(--space-xs); }
+  .m-s  { margin: var(--space-s); }
+  .m-m  { margin: var(--space-m); }
+  .m-l  { margin: var(--space-l); }
+  .m-xl { margin: var(--space-xl); }
+
+  .mb-0  { margin-block: 0; }
+  .mb-xs { margin-block: var(--space-xs); }
+  .mb-s  { margin-block: var(--space-s); }
+  .mb-m  { margin-block: var(--space-m); }
+  .mb-l  { margin-block: var(--space-l); }
+  .mb-xl { margin-block: var(--space-xl); }
+
+  .mi-0  { margin-inline: 0; }
+  .mi-auto { margin-inline: auto; } /* Pour centrer rapidement un bloc */
+  .mi-xs { margin-inline: var(--space-xs); }
+  .mi-s  { margin-inline: var(--space-s); }
+  .mi-m  { margin-inline: var(--space-m); }
+  .mi-l  { margin-inline: var(--space-l); }
+  .mi-xl { margin-inline: var(--space-xl); }
+
+  /* 
+   * PADDINGS (Marges internes)
+   * p- = all | pb- = block (vertical) | pi- = inline (horizontal) 
+   */
+  .p-0  { padding: 0; }
+  .p-xs { padding: var(--space-xs); }
+  .p-s  { padding: var(--space-s); }
+  .p-m  { padding: var(--space-m); }
+  .p-l  { padding: var(--space-l); }
+  .p-xl { padding: var(--space-xl); }
+
+  .pb-0  { padding-block: 0; }
+  .pb-xs { padding-block: var(--space-xs); }
+  .pb-s  { padding-block: var(--space-s); }
+  .pb-m  { padding-block: var(--space-m); }
+  .pb-l  { padding-block: var(--space-l); }
+  .pb-xl { padding-block: var(--space-xl); }
+
+  .pi-0  { padding-inline: 0; }
+  .pi-xs { padding-inline: var(--space-xs); }
+  .pi-s  { padding-inline: var(--space-s); }
+  .pi-m  { padding-inline: var(--space-m); }
+  .pi-l  { padding-inline: var(--space-l); }
+  .pi-xl { padding-inline: var(--space-xl); }
+}
