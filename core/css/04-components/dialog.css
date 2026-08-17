@@ -1,0 +1,49 @@
+@layer components {
+  dialog {
+    /* Le navigateur centre automatiquement un dialog open, on définit juste ses limites */
+    max-inline-size: min(90vw, 600px);
+    max-block-size: 80dvh;
+    padding: var(--space-l);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+    
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+    
+    /* Animations fluides d'ouverture/fermeture */
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease, display 0.3s allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* MAGIE CSS4 : @starting-style définit l'état *avant* que l'élément n'apparaisse dans le DOM */
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+  }
+
+  dialog::backdrop {
+    background-color: color-mix(in oklch, var(--text-main) 30%, transparent);
+    backdrop-filter: blur(4px); /* Flou moderne au lieu du filter global */
+    opacity: 0;
+    transition: opacity 0.3s ease, display 0.3s allow-discrete;
+  }
+
+  dialog[open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
