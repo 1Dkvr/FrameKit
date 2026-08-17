@@ -18,6 +18,7 @@
 
   a:hover {
     /* MAGIE : On prend la couleur brand, et on baisse la luminosité (l) de 10% */
-    color: oklch(from var(--brand-base) calc(l - 10%) c h);
+    /*color: oklch(from var(--brand-base) calc(l - 10%) c h);*/
+    color: oklch(from var(--brand-base) calc(l - 0.1) c h);
   }
 }
