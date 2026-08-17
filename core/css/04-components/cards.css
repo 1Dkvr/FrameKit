@@ -1,0 +1,32 @@
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column; /* Par défaut, image en haut, texte en bas */
+    gap: var(--space-m);
+    padding: var(--space-m);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .card-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  /* Si le parent (wrapper) dépasse 500px, la carte se met automatiquement à l'horizontale ! */
+  @container wrapper (min-width: 500px) {
+    .card {
+      flex-direction: row; /* L'image passe à gauche, le texte à droite */
+      align-items: start;
+    }
+    
+    .card-media {
+      width: 40%;
+      aspect-ratio: 1 / 1;
+    }
+  }
+}
