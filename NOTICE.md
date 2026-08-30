@@ -17,4 +17,4 @@ While the core framework is open-source and free to use, [Hold'inCorp.](https://
 - Custom development, integration, and training services
 - Dedicated support and commercial SLAs
 
-For commercial agreements or premium services, please contact the copyright holder via the [inProgress](https://inprogress.company) website.
+For commercial agreements or premium services, please contact the copyright holder via the [website](https://inprogress.company).
