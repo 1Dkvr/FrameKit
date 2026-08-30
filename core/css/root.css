@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/**
+ * Core Variables Definitions
+ *
+ * @description
+ * Foundational CSS variables (Custom Properties) used across the framework. Relies on modern CSS features: OKLCH color space, light-dark() function for native system theming, and clamp() for fluid typography and spacing. Base variables are injected safely using zero-specificity selectors.
+ * 
+ * @updated 26.09.01
+ * @copyright 2026 Hold'inCorp. All rights reserved.
+ * @author 1Dkvr
+ * @license Apache-2.0 ./LICENSE
+ * @contact inprogress.company
+ *
+ * @link https://developer.mozilla.org/docs/Web/CSS/@charset
+ * @link https://developer.mozilla.org/docs/Web/CSS/Reference/At-rules/@layer
+ * @link https://developer.mozilla.org/docs/Web/CSS/:where
+ * @link https://developer.mozilla.org/docs/Web/CSS/:root
+ * @link https://developer.mozilla.org/docs/Web/CSS/:host
+ * @link https://developer.mozilla.org/docs/Web/CSS/::backdrop
+ * @link https://developer.mozilla.org/docs/Web/CSS/--*
+ * @link https://developer.mozilla.org/docs/Web/CSS/Reference/Values/color_value/oklch
+ * @link https://developer.mozilla.org/docs/Web/CSS/Reference/Values/color_value/light-dark
+ * @link https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/color-scheme
+ * @link https://developer.mozilla.org/docs/Web/CSS/Reference/Values/clamp
+ */
+
+@layer root {
+    :where(:root, :host, ::backdrop) {
+        color-scheme: light dark;
+
+        /* Branding main color (OKLCH) */
+        --brand-lightness: 0.52;
+        --brand-chroma: 0.13;
+        --brand-hue: 285;
+
+        --brand-color: oklch(var(--brand-lightness) var(--brand-chroma) var(--brand-hue));
+        --brand-color-hover: oklch(from var(--brand-color) calc(l - 0.05) c h);
+
+        /* Base Colors */
+        --color-black: oklch(0 0 0);
+        --color-white: oklch(1 0 0);
+
+        --color-dark: oklch(0.16 0.02 278);
+        --color-light: oklch(0.985 0.005 278);
+
+        /* Semantic Colors */
+        --color-system : var(--brand-color);
+        --color-info   : oklch(0.64 0.12 225.56);
+        --color-success: oklch(0.7 0.18 150.27);
+        --color-warning: oklch(0.68 0.17 69.35);
+        --color-error  : oklch(0.56 0.18 17.25);
+
+        /* Themed Properties using light-dark() */
+        --bg-body: light-dark(var(--color-light), var(--color-dark));
+        --bg-surface: light-dark(var(--color-white), oklch(from var(--color-dark) 0.22 c h));
+        --text-main: light-dark(var(--color-dark), var(--color-light));
+        --text-muted: light-dark(oklch(from var(--color-dark) 0.45 c h), oklch(from var(--color-light) 0.70 c h));
+        --border-subtle: light-dark(oklch(from var(--color-dark) 0.90 0.01 h), oklch(from var(--color-light) 0.28 0.01 h));
+    }
+
+    /* Explicit theme overrides via data attributes */
+    :where([data-theme="light"]) { color-scheme: light; }
+    :where([data-theme="dark"])  { color-scheme: dark; }
+
+    :where(:root, :host, ::backdrop) {
+        /**
+         * Fluid Spacing Scale
+         * @description Scales dynamically between mobile and desktop viewports.
+         */
+        /* Level 1 (~4px - 5px)  : Micro-gaps, lists */
+        --space-xs : clamp(0.25rem, 0.23rem + 0.11vw, 0.3125rem);
+        /* Level 2 (~8px - 10px) : Button padding, tight gaps */
+        --space-sm : clamp(0.5rem,  0.46rem + 0.22vw, 0.625rem);
+        /* Level 3 (~16px - 20px): Standard margins, base padding */
+        --space-md : clamp(1rem,    0.91rem + 0.43vw, 1.25rem);
+        /* Level 4 (~24px - 30px): Cards, internal block spacing */
+        --space-lg : clamp(1.5rem,  1.37rem + 0.65vw, 1.875rem);
+        /* Level 5 (~32px - 40px): Section spacing */
+        --space-xl : clamp(2rem,    1.83rem + 0.87vw, 2.5rem);
+        /* Level 6 (~48px - 64px): Hero & major layouts */
+        --space-2x : clamp(3rem,    2.65rem + 1.74vw, 4rem);
+
+        /**
+         * Fluid Typography Scale
+         */
+        /* H1 / Hero title */
+        --text-2x: clamp(2.5rem,   2.15rem + 1.74vw, 3.5rem);
+        /* H2 / Section titles */
+        --text-xl : clamp(1.75rem,  1.58rem + 0.87vw, 2.25rem);
+        /* H3 / Card titles */
+        --text-lg : clamp(1.25rem,  1.16rem + 0.43vw, 1.5rem);
+        /* H4 / Body text (Base) */
+        --text-md : clamp(1rem,     0.96rem + 0.22vw, 1.125rem);
+        /* H5 / Subtitles, badges */
+        --text-sm : clamp(0.875rem, 0.83rem + 0.22vw, 1rem);
+        /* H6 / Legal mentions, micro-copy */
+        --text-xs : clamp(0.75rem,  0.73rem + 0.11vw, 0.8125rem);
+
+        /**
+         * Border Radius Scale
+         */
+        /* ~2px  : Micro-elements, checkboxes, tooltips */
+        --radius-xs  : 0.125rem;
+        /* ~4px  : Buttons, inputs, small badges */
+        --radius-sm  : 0.25rem;
+        /* ~8px  : Cards, alerts, chips, modals */
+        --radius-md  : 0.5rem;
+        /* ~14px : Large panels, content blocks */
+        --radius-lg  : 0.875rem;
+        /* ~20px : Hero cards, banners, large containers */
+        --radius-xl  : 1.25rem;
+        /* ~32px : Massive structural elements, soft geometric shapes */
+        --radius-2x  : 2.00rem;
+
+        /* Pills, avatars, circular buttons */
+        --radius-full: 1000rem;
+
+        /**
+         * Animation Durations
+         */
+        /* Button hovers, tooltips */
+        --duration-fast: 150ms;
+        /* State transitions, card openings */
+        --duration-base: 250ms;
+        /* Modals, drawers, complex animations */
+        --duration-slow: 400ms;
+    }
+}
