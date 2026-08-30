@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/**
+ * @copyright 2026 Hold'inCorp. All rights reserved.
+ * @author 1Dkvr
+ * @license Apache-2.0 /LICENSE
+ * @contact /NOTICE
+ *
+ * @description
+ * Complete baseline style and modern CSS reset for standard HTML elements. Strictly avoids pixels in favor of relative units (rem/em) for maximum accessibility. Integrates fluid typography, reduced motion protocols, smooth scrolling, dynamic viewport heights (dvh), and comprehensive structural resets.
+ *
+ */
+
+@layer base {
+    /* Document Foundation & Smooth Scroll */
+    html {
+        scrollbar-gutter: stable;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* Universal Box-Sizing & Margin Reset */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Accessibility: Reduced Motion Override */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Body Base Styling */
+    body {
+        /* Prevents content clipping on mobile browsers with dynamic toolbars */
+        min-height: 100dvh;
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: var(--text-md);
+        line-height: 1.55;
+        /* Prevents horizontal overflow from unbreakable long strings (e.g., URLs) */
+        overflow-wrap: break-word;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Fluid Typography & Vertical Rhythm */
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--text-main);
+        line-height: 1.1;
+        font-weight: 600;
+        margin-block-start: var(--space-lg);
+        margin-block-end: var(--space-sm);
+        text-wrap: balance;
+    }
+
+    h1 { font-size: var(--text-2x); }
+    h2 { font-size: var(--text-xl); }
+    h3 { font-size: var(--text-lg); }
+    h4 { font-size: var(--text-md); }
+    h5 { font-size: var(--text-sm); }
+    h6 { font-size: var(--text-xs); }
+
+    p, ul, ol, dl, blockquote, figure {
+        margin-block-end: var(--space-md);
+        text-wrap: pretty;
+    }
+
+    ul, ol {
+        padding-inline-start: var(--space-lg);
+    }
+
+    /* Responsive Media Elements */
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        /* Italicizes the alt text if an image is broken */
+        font-style: italic;
+    }
+
+    /* Modern Links & Interactive State */
+    a:where(.default-link, :not([class],[id])) {
+        color: color-mix(in srgb, var(--color-system) 80%, currentColor);
+        font-weight:400;
+        text-decoration: underline;
+        text-decoration-color: oklch(from var(--text-main) l c h / 0.25);
+        text-decoration-thickness: 0.1em;
+        text-underline-offset: 0.1em;
+        text-decoration-skip-ink: auto;
+        transition: 
+            color var(--duration-base) ease-in-out, 
+            text-decoration-color var(--duration-base) ease-in-out,
+            text-decoration-thickness var(--duration-fast) ease-in-out;
+    
+        &:hover {
+            color: var(--color-system);
+            text-decoration-color: oklch(from var(--color-system) l c h / 0.33);
+        }
+    }
+
+    /* Native Form Element Normalization */
+    input, button, textarea, select {
+        font: inherit;
+        color: inherit;
+        border: none;
+        background: none;
+    }
+
+    dialog, fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    button, [type="button"], [type="reset"], [type="submit"], a, input, select, textarea {
+        touch-action: manipulation; /* Mobile optimisation */
+    }
+
+    button, [type="button"], [type="reset"], [type="submit"] {
+        cursor: pointer;
+    }
+
+    /* Communicates inactive state visually */
+    :disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    /* Anchor Target Layout Adjustment */
+    /* Prevents anchored elements from being hidden under fixed headers */
+    [id] { scroll-margin-top: var(--space-2x); }
+
+    /* Accessible Keyboard Focus & Text Selection */
+    :focus-visible {
+        outline: 0.125rem solid var(--color-system);
+        outline-offset: 0.25rem;
+        border-radius: var(--radius-xs);
+    }
+
+    ::selection {
+        background-color:  oklch(from var(--color-system) calc(l + 0.1) c h / 0.25);
+    }
+}
