@@ -5,8 +5,8 @@
  * @updated 26.09.01
  * @copyright 2026 Hold'inCorp. All rights reserved.
  * @author 1Dkvr
- * @license Apache-2.0 ./LICENSE
- * @contact inprogress.company
+ * @license Apache-2.0 /LICENSE
+ * @contact /NOTICE
  *
  * @description
  * Foundational CSS variables (Custom Properties) used across the framework. Relies on modern CSS features: OKLCH color space, light-dark() function for native system theming, and clamp() for fluid typography and spacing. Base variables are injected safely using zero-specificity selectors.
